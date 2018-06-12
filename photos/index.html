@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Photos of Dear &amp; Sean's Wedding</title>
+  <meta name="description" content="Photos of Dear &amp; Sean's Wedding">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57633038-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-57633038-1');
+  </script>
+</head>
+
+<body class="photolist">
+
+<div id="content" class="fullwidth">
+
+  <h1 id="logo"><img src="../images/logo-das.png" alt="Dear &amp; Sean"></h1>
+
+  <h3>Tag your <strong>Instagram</strong> photos with</h3>
+  <h2 id="hashtag">#dearandsean</h2>
+  <div class="row">
+    <ul id="instafeed" class="small-block-grid-2 medium-block-grid-3 large-block-grid-3"></ul>
+    <div class="clear"></div>
+  </div>
+  <a href="#" id="load-more" class="button">
+      Load more photos... <!--ดูเพิ่มเติม...-->
+    </a>
+    <div id="footer">
+      <img src="../images/flowers-base.png">
+    </div>
+</div>
+
+<script>
+  //http://instafeedjs.com/
+  var loadButton = document.getElementById('load-more');
+  var feed = new Instafeed({
+      get: 'tagged',
+      tagName: 'dearandsean',
+      clientId: 'a8debe44de7b4f7fb84559ab85c213c8',
+      userId: '16343343',
+      accessToken: '16343343.ba4c844.6b8f3c64d2c84ddebd3281ebaa79fd5d',
+      template: '<li><a href="{{link}}" title="{{caption}}"><img src="{{image}}"></a></li>',
+      limit: 12,
+      sortBy: 'most-recent', // most-recent most-commented
+      resolution: 'low_resolution', //thumbnail
+      after: function() {
+        // disable button if no more results to load
+        if (!this.hasNext()) {
+          loadButton.setAttribute('disabled', 'disabled');
+        }
+      },
+
+  });
+
+  // bind the load more button
+  loadButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    feed.next();
+  });
+
+  feed.run();
+</script>
+
+</body>
+</html>

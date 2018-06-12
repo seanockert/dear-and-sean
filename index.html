@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Dear &amp; Sean's Wedding 2015</title>
+  <meta name="description" content="Dear &amp; Sean's Wedding 2015">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57633038-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-57633038-1');
+  </script>
+</head>
+
+<body class="en">
+
+<div id="content">
+  <h1 id="logo"><img src="images/logo-das.png" alt="Dear &amp; Sean"></h1>
+  <img src="images/dearandsean.png" id="characters" alt="Dear and Sean characters">
+
+  <h2 id="intro">You are invited to our special day! <!--ขอเรียนเชิญท่านเพื่อเป็นเกียรติในวันอันแสนพิเศษของเรา--></h2>
+  <div class="clear"></div><hr>
+
+  <div id="date">
+    <div class="inner">
+      <h3>When? <!--วันที่--></h3>
+      <h2>1<sup>st</sup> Mar <br> 2015 <!--๑ มีนาคม ๒๕๕๘--></h2>
+      <p>Wedding ceremony at 9am. <!--พีธีมงคลเริ่ม ๙โมงเช้า--></p> 
+    </div>
+    <hr>
+  </div>
+
+  <div id="location">
+    <div class="inner">
+      <h3>Where?</h3>
+      <p><strong>Tewa Boutique Hotel <!--เทวา บูทิค โฮเทล--></strong>
+      <br>131 Chaeng Watthana 13 <!--๑๓๑/๓ ซอยแจ้งวัฒนะ-->
+      <br>Chaeng Watthana Road  <!--๑๓ ถนนแจ้งวัฒนะ-->
+      <br>Bangkok, Thailand
+      </p>
+
+      <a class="button" href="https://www.google.com.au/maps/dir//Tewa+Boutique+Hotel+131%2F3+%E0%B8%8B%E0%B8%AD%E0%B8%A2+%E0%B9%81%E0%B8%88%E0%B9%89%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%92%E0%B8%99%E0%B8%B0+13+Chaeng+Watthana,+%E0%B9%81%E0%B8%82%E0%B8%A7%E0%B8%87+%E0%B8%97%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%AA%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87+%E0%B9%80%E0%B8%82%E0%B8%95+%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B5%E0%B9%88+Bangkok+10210,+Thailand/@13.8867452,100.5624084,15z/data=!4m12!1m3!3m2!1s0x30e2833b145cdcdb:0xdd8178bf9885023d!2sTewa+Boutique+Hotel!4m7!1m0!1m5!1m1!1s0x30e2833b145cdcdb:0xdd8178bf9885023d!2m2!1d100.561711!2d13.886063" title="Open Google Maps" target="_blank">Get Directions <!--เส้นทาง--></a>
+    </div>
+    <hr>
+  </div>
+
+  <div class="clear"></div>
+  <h3>Tag your <strong>Instagram</strong> photos with</h3>
+  <h2 id="hashtag">#dearandsean</h2>
+  <div class="row">
+    <ul id="instafeed" class="small-block-grid-2 medium-block-grid-3 large-block-grid-3"></ul>
+    <div class="clear"></div>
+  </div>
+  <a href="#" id="load-more" class="button" title="Load more photos">
+    Load more photos... <!--ดูเพิ่มเติม...-->
+  </a>  
+  
+  <div class="clear"></div>
+
+  <div id="footer">
+    <img src="images/flowers-base.png" alt="">
+  </div>
+
+</div>
+
+<script src="js/instafeed.min.js"></script>
+<script>
+  //http://instafeedjs.com/
+  var loadButton = document.getElementById('load-more');
+  var feed = new Instafeed({
+      get: 'tagged',
+      tagName: 'dearandsean',
+      clientId: 'a8debe44de7b4f7fb84559ab85c213c8',
+      userId: '16343343',
+      accessToken: '16343343.ba4c844.6b8f3c64d2c84ddebd3281ebaa79fd5d',
+      template: '<li><a href="{{link}}" title="{{caption}}"><img src="{{image}}"></a></li>',
+      limit: 12,
+      sortBy: 'most-recent', // most-recent most-commented
+      resolution: 'low_resolution', //thumbnail
+      after: function() {
+        // disable button if no more results to load
+        if (!this.hasNext()) {
+          loadButton.setAttribute('disabled', 'disabled');
+        }
+      },
+
+  });
+
+  // bind the load more button
+  loadButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    feed.next();
+  });
+
+  feed.run();
+</script>
+</body>
+</html>

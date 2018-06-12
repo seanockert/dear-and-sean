@@ -1,0 +1,40 @@
+
+/* Mobile media queries  ---------------------- */
+@media #{$small-only} {
+
+  #feature {
+    li {
+      padding: 0 2px !important;
+    }
+  }
+
+  .large-centered .columns {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #instafeed {
+    li {
+      width: 50%;
+      float: left;
+      margin: 0;
+      line-height: 0;
+    }
+  }
+
+  #tweets {
+
+    margin-bottom: $base-padding;
+
+    &:after {
+      display: block;
+      content: ' ';
+      text-align: center;
+      width: 100%;
+      background: url(http://wac.76ff.edgecastcdn.net/0076FF/hbwebmedia/yc/v3/images/divider.png) no-repeat top center;
+      height: 32px;
+      margin-top: $base-padding;
+    }
+  }
+
+}

@@ -1,0 +1,101 @@
+.polaroid {
+  position: relative;
+  max-width: 300px;
+  text-decoration: none;
+  display: block;
+  margin: $base-padding;
+
+  img {
+    border: 10px solid #fff;
+    border-bottom: 45px solid #fff;
+    box-shadow: 3px 3px 3px #777;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      background: url(../images/grunge-texture.png) repeat;
+      height: 300px;
+      width: 300px;
+      z-index: 1000;
+    }
+  }
+
+  .v {
+    height: 256px;
+    width: 256px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 22px;
+    z-index: 1000;
+    background: url(../images/grunge-texture.png) repeat 50% 50%;
+    opacity: 0.2;
+
+  }
+
+  p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    color: #888;
+    font-size: $font-size-med;
+    line-height: 1.3;
+
+    strong {
+      font-size: $font-size-large;
+      color: $color-purple;
+    }
+  }
+
+  &.large {
+    display: inline-block;
+    padding: $base-padding/2;
+    margin-bottom: 0 !important;
+    margin-top: -70px !important;
+    z-index: 998;
+
+    img {
+      border-bottom: 110px solid #fff;
+    }
+
+    p {
+      bottom: 12px;
+    }
+
+  }
+
+  &.l, &.r, &.s {
+    margin: $base-padding auto;
+    @include vendor-prefix(transition, all 0.2s);
+  }
+
+  &.s {
+    @include vendor-prefix(transform, rotate(-2deg));
+
+    &:hover {
+      @include vendor-prefix(transform, rotate(0deg));
+      z-index: 999;
+    }
+  }
+
+  &.l {
+    @include vendor-prefix(transform, rotate(-5deg));
+
+    &:hover {
+      @include vendor-prefix(transform, rotate(-2deg));
+      z-index: 999;
+    }
+  }
+
+  &.r {
+    @include vendor-prefix(transform, rotate(10deg));
+
+    &:hover {
+      @include vendor-prefix(transform, rotate(5deg));
+      z-index: 999;
+    }
+  }
+}
