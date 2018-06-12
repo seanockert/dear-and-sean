@@ -7,5 +7,4 @@ _ARCHIVE/
 *.DS_Store
 *Thumbs.db
 *.sql
-*.rb
 *.psd
